@@ -1,0 +1,154 @@
+:root {
+    --accent-color: #11c;
+    --focus-color: #44f;
+    --font-size: 1rem;
+    --header-height: 2rem;
+    --softkey-height: 27px;
+    --transition-speed: 300ms;
+    --grey: #bbb;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.content {
+    flex: 1;
+    background-color: white;
+    overflow: auto;
+}
+
+*:focus {
+    outline: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+header {
+    background-color: var(--accent-color);
+    text-align: center;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: var(--header-height);
+    height: var(--header-height);
+}
+
+#softkeys {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--grey);
+    font-size: 1rem;
+    line-height: var(--softkey-height);
+    height: var(--softkey-height);
+    padding: 0 .25rem;
+}
+
+#softkeys * {
+    width: 80px;
+}
+
+#center {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+#right {
+    text-align: right;
+}
+
+.list-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#options-menu {
+    position: fixed;
+    bottom: var(--softkey-height);
+    left: 0;
+    right: 0;
+}
+
+#options-menu-header {
+    background-color: var(--grey);
+    color: black;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    font-size: 1.4rem;
+    font-weight: lighter;
+}
+
+#options-menu-content {
+    overflow: scroll;
+    overflow: hidden;
+
+    max-height: 170px;
+}
+
+.content-list-item {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.45rem;
+    padding: 0.1rem .6rem;
+    background-color: white;
+}
+
+.content-list-item:focus {
+    background-color: var(--focus-color);
+    color: white;
+}
+
+.list-item {
+    height: 3.5rem;
+    line-height: 0px;
+    font-size: 1.3rem;
+    padding: 0 .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #bbf;
+}
+
+.list-item:focus {
+    background-color: var(--focus-color);
+
+}
+
+.primary {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.secondary {
+    font-size: 1rem;
+    color: var(--grey);
+}
+
+.divider {
+    padding: 10px 7px 10px 7px;
+    display: flex;
+    align-items: center;
+}
+
+.divider>.title {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-right: 7px;
+}
+
+.divider>.line {
+    background-color: var(--accent-color);
+    height: 1px;
+    flex: 1;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="theme-color" content="#11c">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>Collection list</header>
+    <div class="content" tabindex="1">
+        <div class="list-wrapper">
+            <div class="divider">
+                <div class="title">PINNED</div>
+                <div class="line"></div>
+              </div>
+            <div class="list-item" tabindex="0">
+                <div class="leftside">
+                    <p class="primary">Star Wars</p>
+                    <p class="secondary">15 items</p>
+                </div>
+                <div class="rightside">></div>
+            </div>
+            <div class="divider">
+                <div class="title">ALL</div>
+                <div class="line"></div>
+              </div>
+            <div class="list-item" tabindex="1">
+                <div class="leftside">
+                    <p class="primary">LEGO</p>
+                    <p class="secondary">32 items</p>
+                </div>
+                <div class="rightside">></div>
+            </div>
+            <div class="list-item" tabindex="2">
+                <div class="leftside">
+                    <p class="primary">Nail polish</p>
+                    <p class="secondary">169 items</p>
+                </div>
+                <div class="rightside">></div>
+            </div>
+        </div>
+    </div>
+    <div id="options-menu" class="hidden list-wrapper">
+        <header id="options-menu-header" data-translate="options">Options</header>
+        <div id="options-menu-content">
+            <div class="content-list-item" tabindex="0">Delete</div>
+            <div class="content-list-item" tabindex="1">Edit</div>
+            <div class="content-list-item" tabindex="2">Select mulitple</div>
+            <div class="content-list-item" tabindex="3">Pin</div>
+            <div class="content-list-item" tabindex="4">Share</div>
+            <div class="content-list-item" tabindex="5">Settings</div>
+        </div>
+    </div>
+    <footer id="softkeys">
+        <div id="left">Add</div>
+        <div id="center">SELECT</div>
+        <div id="right">Options</div>
+    </footer>
+</body>
+
+</html>
