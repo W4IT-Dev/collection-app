@@ -8,13 +8,6 @@ function opencloseOptionsMenu() {
     lastFocused = document.activeElement;
     optionsmenu.classList.remove('hidden');
     // updateSoftkeydisplay(" ", "SELECT", "Close")
-    if (document.activeElement.classList.contains('medicine-list-item')) {
-        optionsmenuContent.innerHTML = `
-        <div class="content-list-item" data-translate="delete" tabindex="0">Delete</div>
-        <div class="content-list-item" data-translate="calendar" tabindex="1">Calendar</div>
-        <div class="content-list-item" data-translate="settings" tabindex="2">Settings</div>
-        `
-    }
     document.querySelector('.content-list-item').focus();
 }
 
@@ -26,6 +19,19 @@ document.addEventListener('keydown', e => {
     if (e.key === "ArrowDown") nav(1, document.activeElement.classList[0]);
     if (e.key === "ArrowLeft") nav(-1, document.activeElement.classList[0]);
     if (e.key === "ArrowRight") nav(1, document.activeElement.classList[0]);
+    if(e.key == "Enter") {
+        if(document.activeElement.innerText == "Share") {
+            alert('send sms')
+            var activity = new MozActivity({
+                name: "new",
+                data: {
+                  type: "websms/sms",
+                  body: "Hello. This is my Star Wars collection. It has following items: Darth Vaddada, Yoda, Luke skywalker."
+                }
+              });
+              
+        }
+    }
 })
 
 window.onerror = (a, b, c, d, e) => {
