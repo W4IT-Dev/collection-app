@@ -20,6 +20,7 @@ body {
     flex: 1;
     background-color: white;
     overflow: auto;
+    margin-bottom: var(--softkey-height);
 }
 
 *:focus {
@@ -42,7 +43,7 @@ header {
 
 #softkeys {
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -91,7 +92,6 @@ header {
 #options-menu-content {
     overflow: scroll;
     overflow: hidden;
-
     max-height: 170px;
 }
 
@@ -108,20 +108,49 @@ header {
     color: white;
 }
 
+
 .list-item {
     height: 3.5rem;
     line-height: 0px;
     font-size: 1.3rem;
     padding: 0 .5rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid #bbf;
 }
 
+.list-item-w-title {
+    height: 3.5rem;
+    font-size: 1.3rem;
+    padding: 0.2rem .5rem 0 0.5rem;
+    border-bottom: 1px solid #bbf;
+}
+
+.list-item-w-title:focus {
+    background-color: var(--focus-color);
+}
+
+.list-item-w-title:focus .primary {
+    color: white;
+}
+
+.list-item-w-title .description {
+    font-size: 14px;
+}
+
+.list-item-w-title .value {
+    font-size: 24px;
+    margin-top: auto;
+}
+
+
 .list-item:focus {
     background-color: var(--focus-color);
+}
 
+.list-item:focus .primary {
+    color: white;
 }
 
 .primary {

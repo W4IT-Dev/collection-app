@@ -5,11 +5,12 @@
   "type": "web",
   "launch_path": "/index.html",
   "icons": {
-    "56": "/none.png",
-    "112": "/none.png"
+    "56": "/icon.png",
+    "112": "/icon.png"
   },
   "developer": {
-    "name": "W4IT Dev"
+    "name": "W4IT Dev",
+    "url": "https://www.kaiostech.com/"
   },
   "locales": {
     "en-US": {
