@@ -13,11 +13,12 @@ function opencloseOptionsMenu() {
 
 
 document.addEventListener('keydown', e => {
+    if(e.key.includes('Arrow')) return navigate(e.key);
     if (e.key == "SoftRight") opencloseOptionsMenu();
-    if (e.key === "ArrowUp") nav(-1, document.activeElement.classList[0]);
-    if (e.key === "ArrowDown") nav(1, document.activeElement.classList[0]);
-    if (e.key === "ArrowLeft") nav(-1, document.activeElement.classList[0]);
-    if (e.key === "ArrowRight") nav(1, document.activeElement.classList[0]);
+    // if (e.key === "ArrowUp") nav(-1, document.activeElement.classList[0]);
+    // if (e.key === "ArrowDown") nav(1, document.activeElement.classList[0]);
+    // if (e.key === "ArrowLeft") nav(-1, document.activeElement.classList[0]);
+    // if (e.key === "ArrowRight") nav(1, document.activeElement.classList[0]);
     if (e.key == "Enter") {
         handleEnter();
         // if (document.activeElement.firstElementChild.classList.contains('leftside')) {
@@ -52,6 +53,7 @@ function nav(move, navClass) {
     const next = currentIndex + move;
     const items = document.getElementsByClassName(navClass);
     const targetElement = items[next];
+    // console.log(currentIndex, next, items, targetElement)
     if (targetElement) targetElement.focus();
 }
 

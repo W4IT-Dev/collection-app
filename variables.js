@@ -1,6 +1,8 @@
 const optionsmenu = document.querySelector('#options-menu');
 const collectionList = document.querySelector('.collection-list');
+const collection = document.querySelector('.collection');
 
+let base64;
 let collections = [{
     name: "Star Wars",
     pinned: true,
