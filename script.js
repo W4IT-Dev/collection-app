@@ -11,7 +11,6 @@ function opencloseOptionsMenu() {
     document.querySelector('.content-list-item').focus();
 }
 
-let optionsmenu = document.querySelector('#options-menu')
 
 document.addEventListener('keydown', e => {
     if (e.key == "SoftRight") opencloseOptionsMenu();
@@ -20,23 +19,24 @@ document.addEventListener('keydown', e => {
     if (e.key === "ArrowLeft") nav(-1, document.activeElement.classList[0]);
     if (e.key === "ArrowRight") nav(1, document.activeElement.classList[0]);
     if (e.key == "Enter") {
-        if (document.activeElement.firstElementChild.classList.contains('leftside')) {
-            document.activeElement.parentElement.classList.add('hidden');
-            document.querySelector('.collection').classList.remove('hidden');
-            document.querySelector('.collection').firstElementChild.focus();
+        handleEnter();
+        // if (document.activeElement.firstElementChild.classList.contains('leftside')) {
+        //     document.activeElement.parentElement.classList.add('hidden');
+        //     document.querySelector('.collection').classList.remove('hidden');
+        //     document.querySelector('.collection').firstElementChild.focus();
 
-        }
-        if (document.activeElement.innerText == "Share") {
-            alert('send sms')
-            var activity = new MozActivity({
-                name: "new",
-                data: {
-                    type: "websms/sms",
-                    body: "Hello. This is my Star Wars collection. It has following items: Darth Vaddada, Yoda, Luke skywalker."
-                }
-            });
+        // }
+        // if (document.activeElement.innerText == "Share") {
+        //     alert('send sms')
+        //     var activity = new MozActivity({
+        //         name: "new",
+        //         data: {
+        //             type: "websms/sms",
+        //             body: "Hello. This is my Star Wars collection. It has following items: Darth Vaddada, Yoda, Luke skywalker."
+        //         }
+        //     });
 
-        }
+        // }
     }
 })
 
@@ -45,7 +45,7 @@ window.onerror = (a, b, c, d, e) => {
     return true;
 };
 
-document.querySelector('.list-item').focus();
+// document.querySelector('.list-item').focus();
 
 function nav(move, navClass) {
     const currentIndex = document.activeElement.tabIndex;
@@ -55,28 +55,3 @@ function nav(move, navClass) {
     if (targetElement) targetElement.focus();
 }
 
-let collections = [{
-    name: "Star Wars",
-    pinned: true,
-    items: [{
-        name: "Darth Vader",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "Darth Vader",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}]

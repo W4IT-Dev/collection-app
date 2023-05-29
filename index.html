@@ -6,52 +6,37 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <script src="variables.js" defer></script>
+    <script src="functions.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="enter.js" defer></script>
 </head>
 
-<body>
-
+<body onload="startApp();">
     <header>Collection list</header>
     <div class="content" tabindex="1">
-        <div class="list-wrapper">
-            <div class="divider">
-                <div class="title">PINNED</div>
-                <div class="line"></div>
-            </div>
-            <div class="list-item" tabindex="0">
-                <div class="leftside">
-                    <p class="primary">Star Wars</p>
-                    <p class="secondary">15 items</p>
-                </div>
-                <div class="rightside">></div>
-            </div>
-            <div class="divider">
-                <div class="title">ALL</div>
-                <div class="line"></div>
-            </div>
-            <div class="list-item" tabindex="1">
-                <div class="leftside">
-                    <p class="primary">LEGO</p>
-                    <p class="secondary">32 items</p>
-                </div>
-                <div class="rightside">></div>
-            </div>
-            <div class="list-item" tabindex="2">
-                <div class="leftside">
-                    <p class="primary">Nail polish</p>
-                    <p class="secondary">169 items</p>
-                </div>
-                <div class="rightside">></div>
-            </div>
+        <div class="list-wrapper collection-list">
+
         </div>
         <div class="list-wrapper collection hidden">
+            <div class="list-item" tabindex="0">
+                <div class="leftside">
+                    <p class="primary">Darth </p>
+                    <p class="secondary">Some description...</p>
+                </div>
+                <div class="rightside"><img src="" alt="img"></div>
+            </div>
+        </div>
+        <div class="list-wrapper item hidden">
             <div class="list-item-w-title" tabindex="0">
                 <div class="description secondary">Name</div>
                 <div class="value primary">Darth Vader</div>
             </div>
             <div class="list-item-w-title" tabindex="1">
-                <div class="description secondary">Name</div>
-                <div class="value primary">Darth Vader</div>
+                <div class="description secondary">description</div>
+                <div class="value primary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorem?
+                    Aliquam ullam, nisi distinctio quidem dignissimos quis eum blanditiis in voluptas ab. Asperiores
+                    accusantium est corrupti quasi provident ab animi!</div>
             </div>
         </div>
     </div>
