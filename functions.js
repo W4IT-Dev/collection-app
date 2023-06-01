@@ -50,7 +50,7 @@ function openCollection() {
                 <p class="primary">${collections[index].items[i].name} </p>
                 <p class="secondary">${collections[index].items[i].description}</p>
             </div>
-            <div class="rightside"><img src="${localStorage.base64}" height="40px" alt="img"></div>
+            <div class="rightside"><img src="${collections[index].items[i].images[0]}" height="40px" alt="img"></div>
         </div>`
         }
 
@@ -87,12 +87,12 @@ function opencloseOptionsMenu() {
     if (!optionsmenu.classList.contains('hidden')) {
         optionsmenu.classList.add('hidden');
         lastFocused.focus();
-        if (lastFocused.classList.contains('medicine-list-item')) return setSoftkeys("Add", "VIEW", "Options")
+       setSoftkeys("Add", "SELECT", "Options")
         return
     }
     lastFocused = document.activeElement;
     optionsmenu.classList.remove('hidden');
-    updateSoftkeydisplay(" ", "SELECT", "Close")
+    setSoftkeys("", "SELECT", "Close")
     document.querySelector('.content-list-item').focus();
 }
 
@@ -100,4 +100,7 @@ function setSoftkeys(left, center, right) {
     left ? softkey[0].innerHTML = left : softkey[0].innerText = ''
     center ? softkey[1].innerHTML = center : softkey[1].innerText = ''
     right ? softkey[2].innerHTML = right : softkey[2].innerText = ''
+}
+
+function back(){
 }
