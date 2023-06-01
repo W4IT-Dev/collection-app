@@ -1,15 +1,4 @@
-function opencloseOptionsMenu() {
-    if (!optionsmenu.classList.contains('hidden')) {
-        optionsmenu.classList.add('hidden');
-        lastFocused.focus();
-        if (lastFocused.classList.contains('medicine-list-item')) return updateSoftkeydisplay("Add", "VIEW", "Options")
-        return
-    }
-    lastFocused = document.activeElement;
-    optionsmenu.classList.remove('hidden');
-    // updateSoftkeydisplay(" ", "SELECT", "Close")
-    document.querySelector('.content-list-item').focus();
-}
+
 
 
 document.addEventListener('keydown', e => {
