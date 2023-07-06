@@ -23,7 +23,7 @@ function loadCollections() {
 <p class="primary">${collections[i].name}</p>
 <p class="secondary">${collections[i].items.length} item(s)</p>
 </div>
-<div class="rightside">></div>
+<div class="rightside"><img src="/a.png" alt=">"></div>
 </div>`
         } else {
             all += `<div class="list-item collection" tabindex="${i}">
@@ -31,7 +31,7 @@ function loadCollections() {
 <p class="primary">${collections[i].name}</p>
 <p class="secondary">${collections[i].items.length} item(s)</p>
 </div>
-<div class="rightside">></div>
+<div class="rightside"><img src="/a.png" alt=">"></div>
 </div>`
         }
     }
@@ -50,11 +50,10 @@ function openCollection() {
                 <p class="primary">${collections[activeColection].items[i].name}</p>
                 <p class="secondary">${collections[activeColection].items[i].description}</p>
             </div>
-            <div class="rightside"><img src="${collections[activeColection].items[i].images[0]} || data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= " height="40px" alt=""></div>
+            <div class="rightside"><img src="${collections[activeColection].items[i].images[0]}" height="40px" alt=""></div>
         </div>`
         }
 
-        collection.innerHTML += '<input type="file" accept="image/*" class="item local" />'
         collectionList.classList.toggle('hidden');
         collection.classList.toggle('hidden');
         document.querySelector('.item').focus();
@@ -78,31 +77,27 @@ function openCollection() {
 
 function openItem() {
     // const index = document.activeElement.tabIndex;
-
-    item.innerHTML = `
-    <div class="list-item-w-title" tabindex="0">
-                <div class="description secondary">Name</div>
-                <div class="value primary name">${collections[activeColection].items[document.activeElement.tabIndex].name}
-                </div>
+    let html = `
+<div class="list-item-w-title" tabindex="0">
+            <div class="description secondary">Name</div>
+            <div class="value primary name">${collections[activeColection].items[document.activeElement.tabIndex].name}
             </div>
-            <div class="list-item-w-title" tabindex="1">
-                <div class="description secondary">Description</div>
-                <div class="value primary description">${collections[activeColection].items[document.activeElement.tabIndex].description}</div>
-            </div>
-            <div class="list-item-w-title" tabindex="1">
-                <div class="description secondary">Images</div>
-                <div class="value primary images">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
-                        height="20px" width="20px">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
-                        height="20px" width="20px">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
-                        height="20px" width="20px">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
-                        height="20px" width="20px">
-                </div>
+        </div>
+        <div class="list-item-w-title" tabindex="1">
+            <div class="description secondary">Description</div>
+            <div class="value primary description">${collections[activeColection].items[document.activeElement.tabIndex].description}</div>
+        </div>
+        <div class="list-item-w-title" id="images" tabindex="2">
+            <div class="description secondary">Images</div>
+            <div class="value primary images">`
+    for (let i = 0; i < collections[activeColection].items[document.activeElement.tabIndex].images.length; i++) {
+        html += `<img src="${collections[activeColection].items[document.activeElement.tabIndex].images[i]}" alt="image">`
 
-            </div>`
+    }
+    html += "</div> </div>"
+    item.innerHTML = html
+    document.querySelectorAll('.list-item-w-title')[1].onfocus = () => setSoftkeys('Back', 'EDIT', 'Options');
+    document.querySelector('#images').onfocus = () => setSoftkeys('Back', 'VIEW', 'Options')
     collection.classList.add('hidden');
     item.classList.remove('hidden');
     setSoftkeys('Back', 'EDIT', 'Options');
