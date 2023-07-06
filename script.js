@@ -1,11 +1,8 @@
-
-
-
 document.addEventListener('keydown', e => {
     if (e.key.includes('Arrow')) return navigate(e.key);
     if (e.key == "SoftRight") opencloseOptionsMenu();
     if (e.key == "Enter") handleEnter();
-    if(e.key == "Backspace") return history ? (e.preventDefault, back()) : 0 
+    if (e.key == "Backspace") return history ? (e.preventDefault, back()) : 0
 })
 
 window.onerror = (a, b, c, d, e) => {

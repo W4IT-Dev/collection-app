@@ -35,22 +35,22 @@ function loadCollections() {
 </div>`
         }
     }
-    collectionList.innerHTML = pinned + all + `<img src="${localStorage.base64}" alt="meh" height="320px" widht: "240px">`;
+    collectionList.innerHTML = pinned + all;
     document.querySelector('.list-item').focus();
 }
-
+let activeColection;
 function openCollection() {
-    const index = document.activeElement.tabIndex;
+    activeColection = document.activeElement.tabIndex;
 
     if (document.activeElement.classList.contains('collection')) {
         collection.innerHTML = '';
-        for (let i = 0; i < collections[index].items.length; i++) {
+        for (let i = 0; i < collections[activeColection].items.length; i++) {
             collection.innerHTML += `<div class="list-item item" tabindex="${i}">
             <div class="leftside">
-                <p class="primary">${collections[index].items[i].name} </p>
-                <p class="secondary">${collections[index].items[i].description}</p>
+                <p class="primary">${collections[activeColection].items[i].name}</p>
+                <p class="secondary">${collections[activeColection].items[i].description}</p>
             </div>
-            <div class="rightside"><img src="${collections[index].items[i].images[0]}" height="40px" alt="img"></div>
+            <div class="rightside"><img src="${collections[activeColection].items[i].images[0]} || data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= " height="40px" alt=""></div>
         </div>`
         }
 
@@ -79,15 +79,42 @@ function openCollection() {
 function openItem() {
     // const index = document.activeElement.tabIndex;
 
-    collection.style.disply = 'none';
-    item.style.display = 'block'
+    item.innerHTML = `
+    <div class="list-item-w-title" tabindex="0">
+                <div class="description secondary">Name</div>
+                <div class="value primary name">${collections[activeColection].items[document.activeElement.tabIndex].name}
+                </div>
+            </div>
+            <div class="list-item-w-title" tabindex="1">
+                <div class="description secondary">Description</div>
+                <div class="value primary description">${collections[activeColection].items[document.activeElement.tabIndex].description}</div>
+            </div>
+            <div class="list-item-w-title" tabindex="1">
+                <div class="description secondary">Images</div>
+                <div class="value primary images">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
+                        height="20px" width="20px">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
+                        height="20px" width="20px">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
+                        height="20px" width="20px">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt=""
+                        height="20px" width="20px">
+                </div>
+
+            </div>`
+    collection.classList.add('hidden');
+    item.classList.remove('hidden');
+    setSoftkeys('Back', 'EDIT', 'Options');
+    document.querySelector('.list-item-w-title').focus();
+
 }
 
 function opencloseOptionsMenu() {
     if (!optionsmenu.classList.contains('hidden')) {
         optionsmenu.classList.add('hidden');
         lastFocused.focus();
-       setSoftkeys("Add", "SELECT", "Options")
+        setSoftkeys("Add", "SELECT", "Options")
         return
     }
     lastFocused = document.activeElement;
@@ -102,5 +129,5 @@ function setSoftkeys(left, center, right) {
     right ? softkey[2].innerHTML = right : softkey[2].innerText = ''
 }
 
-function back(){
+function back() {
 }

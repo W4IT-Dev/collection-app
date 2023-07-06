@@ -15,6 +15,9 @@ body {
     flex-flow: column;
     height: 100vh;
 }
+* {
+    user-select: none;
+}
 
 .content {
     flex: 1;
@@ -121,10 +124,11 @@ header {
 }
 
 .list-item-w-title {
-    height: 3.5rem;
+    min-height: 3.5rem;
     font-size: 1.3rem;
     padding: 0.2rem .5rem 0 0.5rem;
     border-bottom: 1px solid #bbf;
+    line-break: anywhere;
 }
 
 .list-item-w-title:focus {
@@ -140,8 +144,21 @@ header {
 }
 
 .list-item-w-title .value {
-    font-size: 24px;
+    font-size: 20px;
     margin-top: auto;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.list-item-w-title .images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.images img {
+    height: 80px;
+    width: 60px;
 }
 
 
