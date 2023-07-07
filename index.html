@@ -9,6 +9,7 @@
     <script src="nav.js" defer></script>
     <script src="script.js" defer></script>
     <script src="enter.js" defer></script>
+    <script src="softleft.js"></script>
     <script src="kaiads.v5.min.js"></script>
 </head>
 
@@ -18,6 +19,19 @@
         <div class="list-wrapper collection-list"></div>
         <div class="list-wrapper collection hidden"></div>
         <div class="list-wrapper item-info hidden"></div>
+        <div class="list-wrapper new-collection hidden">
+            <div class="list-item kui-input-holder">
+                <label class="kui-input-label kui-h3"></label>
+                <input type="text" class="kui-input kui-text new-collection-list-item" id="collection-name" placeholder="Name" tabindex="0" onfocus="setSoftkeys('Back', 'SAVE')">
+            </div>
+            <div class="list-item ">
+                <p>Pinned</p>
+                <label class="switch">
+                    <input type="checkbox" class="new-collection-list-item switch-input" tabindex="1" onfocus="setSoftkeys('Back', 'SELECT')">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
     </div>
     <div id="options-menu" class="hidden list-wrapper"></div>
     <footer id="softkeys">

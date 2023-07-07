@@ -1,7 +1,7 @@
 function handleEnter() {
-    const aecl = document.activeElement.classList    
-    console.log(document.activeElement.classList)
-    if(document.activeElement.classList.contains('collection')) return openCollection();
-    if(document.activeElement.classList.contains('item')) return openItem();
+    const a = document.activeElement;
+    if(a.classList.contains('collection')) return openCollection();
+    if(a.classList.contains('item')) return openItem();
+    if(a.classList.contains('new-collection-list-item') && !a.classList.contains('switch-input')) return newCollection(a.value, document.querySelector('.switch-input').checked);
     // if(aecl.contains('item')) return openCollection();
 }

@@ -19,14 +19,8 @@ function showToast(text, time) {
 }
 
 function loadCollections() {
-    let pinned = `<div class="divider">
-    <div class="title">PINNED</div>
-    <div class="line"></div>
-</div>`
-    let all = `<div class="divider">
-<div class="title">ALL</div>
-<div class="line"></div>
-</div>`
+    let pinned = `<div class="divider"> <div class="title">PINNED</div> <div class="line"></div> </div>`
+    let all = `<div class="divider"> <div class="title">ALL</div> <div class="line"></div> </div>`
     for (let i = 0; i < collections.length; i++) {
         if (collections[i].pinned) {
             pinned += `
@@ -94,6 +88,19 @@ function openItem() {
     item.innerHTML = html + "</div></div>"
     collection.classList.add('hidden'), item.classList.remove('hidden');
     document.querySelector('.list-item-w-title').focus();
+}
+
+function newCollection(name, pinned) {
+    console.log('yo')
+    collections.push({
+        name: name,
+        pinned: pinned,
+        items: []
+    });
+    loadCollections();
+    addCollection.classList.add('hidden');
+    document.querySelector('.kui-input').value = ""
+    document.querySelector('.switch-input').checked = false;
 }
 
 function opencloseOptionsMenu() {

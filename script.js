@@ -1,8 +1,9 @@
 document.addEventListener('keydown', e => {
     if (e.key.includes('Arrow')) return navigate(e.key);
+    if (e.key == "SoftLeft") handleSoftLeft();
     if (e.key == "SoftRight") opencloseOptionsMenu();
     if (e.key == "Enter") handleEnter();
-    if (e.key == "Backspace") return history ? (e.preventDefault, back()) : false
+    if (e.key == "Backspace") return history ? (e.preventDefault(), back()) : false
 })
 
 window.onerror = (a, b, c, d, e) => {
@@ -10,14 +11,12 @@ window.onerror = (a, b, c, d, e) => {
     return true;
 };
 
-// document.querySelector('.list-item').focus();
 
 function nav(move, navClass) {
     const currentIndex = document.activeElement.tabIndex;
     const next = currentIndex + move;
     const items = document.getElementsByClassName(navClass);
     const targetElement = items[next];
-    // console.log(currentIndex, next, items, targetElement)
     if (targetElement) targetElement.focus();
 }
 

@@ -2,6 +2,7 @@ const optionsmenu = document.querySelector('#options-menu');
 const collectionList = document.querySelector('.collection-list');
 const collection = document.querySelector('.collection');
 const item = document.querySelector('.item-info')
+const addCollection = document.querySelector('.new-collection')
 const softkey = [
     document.querySelector('#left'),
     document.querySelector('#center'),
@@ -28,7 +29,7 @@ let collections = [{
     name: "LEGO",
     pinned: false,
     items: [{
-        name: "lol",
+        name: "golden brick",
         description: "figure",
         images: ["data:64"]
     }, {
@@ -36,132 +37,4 @@ let collections = [{
         description: "figure",
         images: ["data:64"]
     }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}, {
-    name: "LEGO",
-    pinned: false,
-    items: [{
-        name: "lol",
-        description: "figure",
-        images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
-    }]
-}]
+}];
