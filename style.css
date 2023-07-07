@@ -27,6 +27,55 @@ body {
     margin-bottom: var(--softkey-height);
 }
 
+.kui-toast {
+    animation: toaster 0.48s;
+    height: auto;
+    padding: 4px;
+    line-height: 25px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(50, 50, 50, 0.99);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 10000;
+}
+
+.kui-toast .kui-pri {
+    margin: 0;
+}
+
+.kui-toast-shadow {
+    height: 6px;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+@keyframes toaster {
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes gatst {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: translateY(-50px);
+    }
+}
+
+.byetoast {
+    animation: gatst 0.5s;
+}
+
 *:focus {
     outline: none;
 }

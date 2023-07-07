@@ -43,10 +43,6 @@ let collections = [{
         name: "lol",
         description: "figure",
         images: ["data:64"]
-    }, {
-        name: "a",
-        description: "figure",
-        images: ["data:64"]
     }]
 }, {
     name: "LEGO",
