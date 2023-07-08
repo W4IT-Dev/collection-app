@@ -22,12 +22,12 @@
         <div class="list-wrapper new-collection hidden">
             <div class="list-item kui-input-holder">
                 <label class="kui-input-label kui-h3"></label>
-                <input type="text" class="kui-input kui-text new-collection-list-item" id="collection-name" placeholder="Name" tabindex="0" onfocus="setSoftkeys('Back', 'SAVE')">
+                <input onfocus="document.activeElement.parentElement.classList.add('focused'), setSoftkeys('Back', 'SAVE')" onblur="document.querySelector('.focused').classList.remove('focused')" type="text" class="kui-input kui-text new-collection-list-item" id="collection-name" placeholder="Name" tabindex="0">
             </div>
-            <div class="list-item ">
+            <div class="list-item">
                 <p>Pinned</p>
                 <label class="switch">
-                    <input type="checkbox" class="new-collection-list-item switch-input" tabindex="1" onfocus="setSoftkeys('Back', 'SELECT')">
+                    <input onfocus="document.activeElement.parentElement.parentElement.classList.add('focused'), setSoftkeys('Back', 'SELECT')" onblur="document.querySelector('.focused').classList.remove('focused')" type="checkbox" class="new-collection-list-item switch-input" tabindex="1">
                     <span class="slider round"></span>
                 </label>
             </div>

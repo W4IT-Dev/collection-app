@@ -1,4 +1,5 @@
 const optionsmenu = document.querySelector('#options-menu');
+const header = document.querySelector('header');
 const collectionList = document.querySelector('.collection-list');
 const collection = document.querySelector('.collection');
 const item = document.querySelector('.item-info')
@@ -13,7 +14,7 @@ const softkey = [
 let history = [];
 
 let base64;
-let collections = [{
+let collections = JSON.parse(localStorage.collections) || [{
     name: "Star Wars",
     pinned: true,
     items: [{

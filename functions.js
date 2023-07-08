@@ -22,9 +22,11 @@ function loadCollections() {
     let pinned = `<div class="divider"> <div class="title">PINNED</div> <div class="line"></div> </div>`
     let all = `<div class="divider"> <div class="title">ALL</div> <div class="line"></div> </div>`
     for (let i = 0; i < collections.length; i++) {
+        // console.log(i)
         if (collections[i].pinned) {
+            // console.log(i)
             pinned += `
-                    <div class="list-item collection" tabindex="${i}" onfocus="setSoftkeys('Add', 'SELECT', 'Options'), setOptions('Unpin', 'Delete', 'Settings')">
+                    <div class="list-item collection" onfocus="setSoftkeys('Add', 'SELECT', 'Options'), setOptions('Unpin', 'Delete', 'Settings')" id="${i}">
                         <div class="leftside">
                             <p class="primary">${collections[i].name}</p>
                             <p class="secondary">${collections[i].items.length}${collections[i].items.length > 1 ? " items" : " item"}</p>
@@ -32,7 +34,9 @@ function loadCollections() {
                         <div class="rightside"><img src="/arrow_right.png" alt=">"></div>
                     </div>`
         } else {
-            all += `<div class="list-item collection" onfocus="setSoftkeys('Add', 'SELECT', 'Options'), setOptions('Pin', 'Delete', 'Settings')" tabindex="${i}">
+            // console.log(i)
+
+            all += `<div class="list-item collection" onfocus="setSoftkeys('Add', 'SELECT', 'Options'), setOptions('Pin', 'Delete', 'Settings')" id="${i}">
                         <div class="leftside">
                             <p class="primary">${collections[i].name}</p>
                             <p class="secondary">${collections[i].items.length}${collections[i].items.length > 1 ? " items" : " item"}</p>
@@ -41,13 +45,28 @@ function loadCollections() {
                     </div>`
         }
     }
+    
     collectionList.innerHTML = pinned + all;
+    for(let i = 0; i < document.querySelectorAll('.collection').length; i++) {
+        document.querySelectorAll('.collection')[i].tabIndex = i;
+    }
     document.querySelector('.list-item').focus();
 }
 let activeColection;
 function openCollection() {
     history.push('collection')
-    activeColection = document.activeElement.tabIndex;
+    activeColection = document.activeElement.id;
+    header.innerText = collections[activeColection].name;
+    if (collections[activeColection].items == false) {
+        alert('no items')
+        collection.innerHTML = `
+        <button onfocus="setSoftkeys('Back','SELECT','Options'), setOptions('Settings')" onclick="newitem();">Add Item</button>
+        `
+        collectionList.classList.toggle('hidden');
+        collection.classList.toggle('hidden');
+        document.querySelector('button').focus();
+
+    } else {
     if (document.activeElement.classList.contains('collection')) {
         collection.innerHTML = '';
         for (let i = 0; i < collections[activeColection].items.length; i++) {
@@ -66,10 +85,13 @@ function openCollection() {
         document.querySelector('.item').focus();
         setOptions('Pin', 'Delete', 'Settings')
     }
+    }
 }
 
 function openItem() {
     history.push('item')
+    header.innerText = collections[activeColection].items[document.activeElement.tabIndex].name;
+
     let html = `
         <div class="list-item-w-title" tabindex="0" onfocus="setSoftkeys('Back', 'EDIT', 'Options')">
             <div class="description secondary">Name</div>
@@ -101,6 +123,7 @@ function newCollection(name, pinned) {
     addCollection.classList.add('hidden');
     document.querySelector('.kui-input').value = ""
     document.querySelector('.switch-input').checked = false;
+    localStorage.collections = JSON.stringify(collections)
 }
 
 function opencloseOptionsMenu() {
@@ -132,5 +155,6 @@ function setOptions() {
 
 function back() {
     if (!history) return
-    if (history[history.length - 1] == "item") item.classList.add('hidden'), collection.classList.remove('hidden')
+    if (history[history.length-1] == "item") return history = history.pop(), item.classList.add('hidden'), collection.classList.remove('hidden'), document.querySelector('.item').focus(), header.innerText = collections[activeColection].name;
+    if (history[history.length-1] == "collection") return history = history.pop(),collection.classList.add('hidden'), collectionList.classList.remove('hidden'), document.querySelector('.collection').focus(), header.innerText = "Collection list";
 }

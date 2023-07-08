@@ -80,7 +80,7 @@ body {
     position: relative;
     display: inline-block;
     width: 40px;
-    height: 22px;
+    height: 23px;
 }
 
 .switch input {
@@ -104,8 +104,8 @@ body {
 .slider:before {
     position: absolute;
     content: "";
-    height: 14px;
-    width: 14px;
+    height: 15px;
+    width: 15px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -122,7 +122,7 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    transform: translateX(18px);
+    transform: translateX(17px);
 }
 
 *:focus {
@@ -141,6 +141,7 @@ header {
     font-weight: 600;
     line-height: var(--header-height);
     height: var(--header-height);
+    z-index: 100;
 }
 
 #softkeys {
@@ -154,7 +155,7 @@ header {
     line-height: var(--softkey-height);
     height: var(--softkey-height);
     padding: 0 .25rem;
-    z-index: 100000000000000000;
+    z-index: 100;
 }
 
 #softkeys * {
@@ -302,10 +303,11 @@ header {
 .new-collection {
     position: absolute;
     background-color: white;
-    height: 100%;
+    height: calc(296px - --header-height - --softkey-height);
     width: 100%;
-    top: 0;
-    z-index: 10000;
+    top: var(--header-height);
+    bottom: var(--softkey-height);
+    z-index: 50;
 }
 .kui-input-holder {
     background-color: #fff;
@@ -315,7 +317,7 @@ header {
     padding: 5px 7px;
 }
 
-.list-item:has(input:focus) {
+.list-item.focused {
     background-color: var(--focus-color);
     color: #fff;
     outline: 0;
