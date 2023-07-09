@@ -9,7 +9,8 @@
     <script src="nav.js" defer></script>
     <script src="script.js" defer></script>
     <script src="enter.js" defer></script>
-    <script src="softleft.js"></script>
+    <script src="softleft.js" defer></script>
+    <script src="softright.js" defer></script>
     <script src="kaiads.v5.min.js"></script>
 </head>
 
@@ -22,15 +23,36 @@
         <div class="list-wrapper new-collection hidden">
             <div class="list-item kui-input-holder">
                 <label class="kui-input-label kui-h3"></label>
-                <input onfocus="document.activeElement.parentElement.classList.add('focused'), setSoftkeys('Back', 'SAVE')" onblur="document.querySelector('.focused').classList.remove('focused')" type="text" class="kui-input kui-text new-collection-list-item" id="collection-name" placeholder="Name" tabindex="0">
+                <input onfocus="document.activeElement.parentElement.classList.add('focused'), setSoftkeys('Back', '', 'Save')" onblur="document.querySelector('.focused').classList.remove('focused')" type="text" class="kui-input kui-text new-collection-list-item" id="collection-name" placeholder="Name" tabindex="0">
             </div>
             <div class="list-item">
+                <p>Pinned</p>
+                <label class="switch">
+                    <input onfocus="document.activeElement.parentElement.parentElement.classList.add('focused'), setSoftkeys('Back', 'SELECT', 'Save')" onblur="document.querySelector('.focused').classList.remove('focused')" type="checkbox" class="new-collection-list-item switch-input" tabindex="1">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <div class="list-wrapper new-item hidden">
+            <div class="list-item kui-input-holder">
+                <label class="kui-input-label kui-h3"></label>
+                <input onfocus="document.activeElement.parentElement.classList.add('focused'), setSoftkeys('Back', '', 'Save')" onblur="document.querySelector('.focused').classList.remove('focused')" type="text" class="kui-input kui-text new-item-list-item" id="item-name" placeholder="Name" tabindex="0">
+            </div>
+            <div class="list-item kui-input-holder">
+                <label class="kui-input-label kui-h3"></label>
+                <input onfocus="document.activeElement.parentElement.classList.add('focused'), setSoftkeys('Back', '', 'Save')" onblur="document.querySelector('.focused').classList.remove('focused')" type="text" class="kui-input kui-text new-item-list-item" id="item-description" placeholder="Description" tabindex="1">
+            </div>
+            <div class="list-item">
+                <button onclick="document.querySelector('input[type=file]').click();" class="new-item-list-item" tabindex="2">Add image</button>
+                <input type="file" style="position: absolute; opacity: 0;">
+            </div>
+            <!-- <div class="list-item">
                 <p>Pinned</p>
                 <label class="switch">
                     <input onfocus="document.activeElement.parentElement.parentElement.classList.add('focused'), setSoftkeys('Back', 'SELECT')" onblur="document.querySelector('.focused').classList.remove('focused')" type="checkbox" class="new-collection-list-item switch-input" tabindex="1">
                     <span class="slider round"></span>
                 </label>
-            </div>
+            </div> -->
         </div>
     </div>
     <div id="options-menu" class="hidden list-wrapper"></div>

@@ -55,12 +55,15 @@ function loadCollections() {
 let activeColection;
 function openCollection() {
     history.push('collection')
-    activeColection = document.activeElement.id;
+   activeColection = document.activeElement.id;
     header.innerText = collections[activeColection].name;
     if (collections[activeColection].items == false) {
-        alert('no items')
+        // alert('no items')
+        
         collection.innerHTML = `
-        <button onfocus="setSoftkeys('Back','SELECT','Options'), setOptions('Settings')" onclick="newitem();">Add Item</button>
+        <div class="list-item">
+        <button onfocus="setSoftkeys('Back','SELECT','Options'), setOptions('Settings')" onclick="document.querySelector('.new-item').classList.remove('hidden'), this.parentElement.classList.add('hidden'), document.querySelector('#item-name').focus();">Add Item</button>
+        </div>
         `
         collectionList.classList.toggle('hidden');
         collection.classList.toggle('hidden');
@@ -123,6 +126,20 @@ function newCollection(name, pinned) {
     addCollection.classList.add('hidden');
     document.querySelector('.kui-input').value = ""
     document.querySelector('.switch-input').checked = false;
+    localStorage.collections = JSON.stringify(collections)
+}
+
+function newitem(name, description,images){
+    // alert('yo')
+    collections[activeColection].items.push({
+        name: name,
+        description: description,
+        images: []
+    });
+    // openItem();
+    addItem.classList.add('hidden');
+    document.querySelector('#item-name').value = ""
+    document.querySelector('#item-description').value = ""
     localStorage.collections = JSON.stringify(collections)
 }
 

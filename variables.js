@@ -4,6 +4,7 @@ const collectionList = document.querySelector('.collection-list');
 const collection = document.querySelector('.collection');
 const item = document.querySelector('.item-info')
 const addCollection = document.querySelector('.new-collection')
+const addItem = document.querySelector('.new-item')
 const softkey = [
     document.querySelector('#left'),
     document.querySelector('#center'),
@@ -14,7 +15,7 @@ const softkey = [
 let history = [];
 
 let base64;
-let collections = JSON.parse(localStorage.collections) || [{
+let collections =  [{
     name: "Star Wars",
     pinned: true,
     items: [{
@@ -39,3 +40,5 @@ let collections = JSON.parse(localStorage.collections) || [{
         images: ["data:64"]
     }]
 }];
+
+if(localStorage.collections) collections = JSON.parse(localStorage.collections)
